@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="body2">
+    <div class="body3">
+        <div class="title-bar">
+          <div class="title">📝 To-Do List</div>
+        </div>
+      
+        <div class="addTask">
+          <input type="text" id="taskInput" placeholder="Add a new task">
+          <button id="addBtn">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    // Enable dragging of the window
+    ipcRenderer.on('start-drag', () => {
+      const { remote } = require('electron');
+      remote.getCurrentWindow().startDrag();
+    });
+
+    // Minimize and close buttons functionality
+    document.getElementById('minimize-btn').addEventListener('click', () => {
+      const { remote } = require('electron');
+      remote.getCurrentWindow().minimize();
+    });
+
+    document.getElementById('close-btn').addEventListener('click', () => {
+      const { remote } = require('electron');
+      remote.getCurrentWindow().close();
+    });
+  </script>
+</body>
+</html>

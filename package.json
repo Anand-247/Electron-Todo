@@ -1,0 +1,34 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "homepage": "git@github.com:Anand-247/Electron-Todo.git",
+  "description": "A minimal Electron Todo application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . TodoApp --platform=linux --arch=x64 --icon=assets/icon.png --overwrite",
+    "dist": "electron-builder --linux",
+    "build": "electron-builder"
+  },
+  "author": {
+    "name": "Anand",
+    "email": "anandcoder1@gmail.com"
+  },
+  "devDependencies": {
+    "electron": "^33.3.1",
+    "electron-builder": "^24.13.3"
+  },
+  "keywords": [],
+  "build": {
+    "productName": "Todo App",
+    "appId": "com.todo.app",
+    "linux": {
+      "target": ["deb", "AppImage"],
+      "icon": "assets/todo-app-icon.png",
+      "category": "Utility"
+    },
+    "win": {
+      "icon": "assets/icon.ico"
+    }
+  }
+}

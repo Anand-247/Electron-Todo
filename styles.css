@@ -1,0 +1,228 @@
+/* Universal styles */
+* {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+  margin: 0;
+  padding: 0;
+  font-family: 'Signika', 'Signika';
+  letter-spacing: 0.8px;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+*::selection {
+  background-color: transparent;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  /* backdrop-filter: blur(50px); */
+  /* -webkit-backdrop-filter: blur(50px); */
+  /* height: 100%; */
+}
+
+.body2 {
+  background-color: rgba(132, 132, 132, 0.316);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border-radius: 20px;
+  height: 100vh;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+              inset -5px -5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.body3 {
+  padding: 8px;
+  overflow: scroll;
+}
+
+/* Custom title bar */
+.title-bar {
+  -webkit-user-select: none;
+  -webkit-app-region: drag; /* Allow dragging */
+  /* background-color: rgba(0, 0, 0, 0.9); */
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 0 0; /* Border radius for the top corners */
+}
+
+.title-bar .title {
+  align-self: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: black;
+  /* text-shadow: 
+    -0.5px -0.5px 0 black,  
+     0.5px -0.5px 0 black,  
+    -0.5px  0.5px 0 black,  
+     0.5px  0.5px 0 black; */
+}
+
+.title-bar .controls {
+  display: flex;
+  gap: 10px;
+}
+
+.title-bar button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.title-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Body 2 styling */
+#body2 {
+  height: 100%;
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  border-radius: 20px; /* Border radius for content */
+  margin-top: 10px; /* To avoid overlap with title bar */
+}
+
+/* Drag region for the heading */
+.heading {
+  -webkit-app-region: drag;
+}
+
+.addTask {
+  display: flex;
+  /* margin-top: 5px; */
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Task input styling */
+#taskInput {
+  width: 80%;
+  height: min-content;
+  padding: 8px 12px;
+  /* margin-top: 20px; */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.697);
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#taskInput:focus {
+  outline: none;
+}
+
+/* Add button styling */
+#addBtn {
+  height: min-content;
+  padding: 8px 8px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Task list styling */
+#taskList {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+/* Task item styling */
+#taskList li {
+  background-color: #fff;
+  margin-bottom: 8px;
+  height: min-content;
+  padding: 3px;
+  color: blue;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Serial number styling */
+#taskList span {
+  display: flex;
+}
+
+#taskList span strong {
+  color: black;
+  border: 1px;
+  border-right: gray;
+}
+
+#taskList li p {
+  margin-right: 8px;
+  padding-right: 8px;
+  padding-left: 5px;
+  color: black;
+  border-right: 1px solid gray;
+}
+
+#taskList li h4 {
+  width: 80%;
+}
+
+/* Task text completed styling */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Task action buttons container */
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Delete button styling */
+.deleteBtn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.deleteBtn i {
+  color: #bd2326;
+  /* padding: 6px 6px; */
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for delete button */
+/* .deleteBtn i:hover {
+  background-color: #bd2326;
+  transform: scale(1.05);
+  color: white;
+} */
+
+/* Checkmark button styling */
+.checkmarkBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.checkmarkBtn i {
+  color: gray;
+}
+
+/* Hover effect for checkmark button */
+.checkmarkBtn i:hover {
+  color: green;
+}
