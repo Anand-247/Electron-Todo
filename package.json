@@ -20,15 +20,24 @@
   },
   "keywords": [],
   "build": {
-    "productName": "Todo App",
+    "productName": "Todo-App",
     "appId": "com.todo.app",
     "linux": {
-      "target": ["deb", "AppImage"],
+      "target": [
+        "deb",
+        "AppImage"
+      ],
       "icon": "assets/todo-app-icon.png",
       "category": "Utility"
     },
     "win": {
-      "icon": "assets/icon.ico"
+      "icon": "assets/todo-app-icon.png"
     }
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1"
   }
 }

@@ -20,6 +20,20 @@ function createWindow() {
   });
 
   win.loadFile('index.html');
+
+  // **Ensure always on top**
+  win.setAlwaysOnTop(true, 'screen-saver');
+  
+  // Focus the window after load
+  win.once('ready-to-show', () => {
+    win.show();
+    win.focus();
+  });
+
+  // Reapply always on top when window is shown
+  win.on('show', () => {
+    win.setAlwaysOnTop(true, 'screen-saver');
+  });
 }
 
 app.whenReady().then(() => {
