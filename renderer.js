@@ -1,18 +1,17 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const taskList = document.getElementById('taskList');
+const { ipcRenderer } = require('electron');
 
 let tasks = [];
 
-// Load tasks from localStorage when the app starts
-window.onload = () => {
-  const storedTasks = JSON.parse(localStorage.getItem('tasks'));
-  if (storedTasks) {
-    tasks = storedTasks;
-    renderTasks();
-  }
-  taskInput.focus(); // Auto-focus input
-};
+// **Load tasks from file when the app starts**
+ipcRenderer.send('load-tasks');
+
+ipcRenderer.on('tasks-loaded', (event, storedTasks) => {
+  tasks = storedTasks;
+  renderTasks();
+});
 
 // Add task when the "Add" button is clicked
 addBtn.addEventListener('click', addTask);
@@ -91,5 +90,5 @@ function deleteTask(index) {
 }
 
 function saveTasks() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  ipcRenderer.send('save-tasks', tasks); // Send updated tasks to main process
 }
